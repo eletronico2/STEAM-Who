@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>STEAM Who?</title>
+    <style>
+        /* Aggiungi stili CSS per il popup */
+        .popup-bg {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: rgb(100, 100, 100); /* Aggiungi uno sfondo nero al popup */
+            color: white; /* Cambia il colore del testo per renderlo visibile sullo sfondo nero */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            max-width: 300px;
+            text-align: center;
+}
+        #popupImg {
+            max-width: 100%;
+            max-height: 90vh;
+            margin-bottom: 20px; /* Aggiunto margine inferiore per separare l'immagine dal testo */
+        }
+
+        .popup-text {
+            text-align: left;
+            color: white; /* Cambia il colore del testo per renderlo visibile sullo sfondo nero */
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            height: 100%;
+            overflow-y: auto; 
+            overflow-x: hidden; 
+        }
+
+        body {
+            overflow: hidden;
+        }
+        .circular-square {
+            border-radius: 50%; /* Rende gli angoli rotondi */
+            overflow: hidden; /* Assicura che l'immagine sia tagliata correttamente */
+            width: 150px; /* Larghezza e altezza dell'immagine */
+            height: 150px;
+            display: flex; /* Per centrare l'immagine */
+            justify-content: center; /* Per centrare l'immagine */
+            align-items: center; /* Per centrare l'immagine */
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="star star1"></div>
+        <div class="star star2"></div>
+        <div class="star star3"></div>
+        <div class="star star4"></div>
+
+        <input type="checkbox" id="check">
+        <header>
+            <div class="circular-square">
+                <img src="img/resources/logo itis.png" usemap="#logus" height="150px" width="150px"> 
+                <map name="logus">
+                    <area shape="rect" coords="1,1,128,129" href="https://www.itisguidodorso.edu.it/" target="_blank">
+                </map>
+            </div>
+            <div class="navigation">
+                <a href="index.html">Home</a>
+                <a href="lista_personaggi.html">Lista Personaggi</a>
+                <a href="gioco.html">Gioca</a>
+            </div>
+            <label for="check">
+                <i class="fas fa-bars menu-btn"></i>
+                <i class="fas fa-times menu-btn"></i>
+            </label>
+        </header>
+        <div align="center">
+        <div class="content" align="center">
+            <div class="info">
+                <h2>PERSONAGGI DISPONIBILI<br></h2>
+            </div>
+            <table width="100%">
+                <tr>
+                    <td width="20%">
+                        <img src="img/pg/ada_lovelace.jpg" alt="Ada Lovelace" width="150px" class="immagine-animata" onclick="showPopup ('img/ada_lovelace.jpg', 'Ada Lovelace(1815-1852)', 'Ada Lovelace è stata una matematica, informatica e scrittrice inglese nata nel 1815, conosciuta soprattutto per il suo lavoro sul motore analitico di Charles Babbage, un progetto per la creazione del primo computer della storia.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/samantha_cristoforetti.jpg" alt="Samantha Cristoforetti" width="150px" class="immagine-animata" onclick="showPopup ('img/samantha_cristoforetti.jpg', 'Samantha Cristoforetti(1977)', 'Samantha Cristoforetti è un\'astronauta italiana che ha battuto diversi record, tra cui quello per la permanenza più lunga nello spazio da parte di un\'astronauta donna.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/stephen_hawking.png" alt="Stephen Hawking" width="150px" class="immagine-animata" onclick="showPopup ('img/stephen_hawking.png', 'Stephen Hawking(1942-2018)', 'Stephen Hawking è stato un famoso fisico teorico, cosmologo e autore britannico, noto per i suoi contributi alla teoria dei buchi neri.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/steve_jobs.jpg" alt="Steve Jobs" width="150px" class="immagine-animata" onclick="showPopup ('img/steve_jobs.jpg', 'Steve Jobs(1955-2011)', 'Steve Jobs è stato un imprenditore e inventore americano, co-fondatore di Apple Inc. ed è considerato una delle figure più influenti nella storia della tecnologia.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/edward_jenner.jpg" alt="Edward Jenner" width="150px" class="immagine-animata" onclick="showPopup ('img/edward_jenner.jpg', 'Edward Jenner(1749-1823)', 'Edward Jenner è stato un medico inglese che ha introdotto il primo vaccino contro il vaiolo, salvando milioni di vite umane.')">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <img src="img/pg/niels_bohr.jpg" alt="Niels Bohr" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/niels_bohr.jpg', 'Niels Bohr(1885-1962)', 'Niels Bohr è stato un fisico danese che ha contribuito in modo significativo alla comprensione della struttura atomica e alla meccanica quantistica.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/albert_einstein.jpg" alt="Albert Einstein" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/albert_einstein.jpg', 'Albert Einstein(1879-1955)', 'Albert Einstein è stato un fisico teorico tedesco, noto per la teoria della relatività e per la sua formula più famosa, E=mc^2.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/jonas_salk.jpg" alt="Jonas Salk" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/jonas_salk.jpg', 'Jonas Salk(1914-1995)', 'Jonas Salk è stato un virologo americano che ha sviluppato il primo vaccino contro la poliomielite, contribuendo così a debellare la malattia.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/marie_curie.jpg" alt="Marie Curie" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/marie_curie.jpg', 'Marie Curie(1867-1934)', 'Marie Curie è stata una fisica e chimica polacca, naturalizzata francese, che ha condotto ricerche fondamentali sulle radiazioni e ha scoperto il radio e il polonio.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/renato_dulbecco.jpg" alt="Renato Dulbecco" width="150px" class="immagine-animata" onclick="showPopup('img/pg/renato_dulbecco.jpg', 'Renato Dulbecco(1914-2012)', 'Renato Dulbecco è stato un virologo italiano naturalizzato statunitense, vincitore del premio Nobel per la medicina nel 1975 per le sue ricerche sui virus tumorali.')">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <img src="img/pg/charles_darwin.jpg" alt="Charles Darwin" width="150px" class="immagine-animata" onclick="showPopup( 'img/pg/charles_darwin.jpg', 'Charles Darwin(1809-1882)', 'Charles Darwin è un famoso biologo noto per la sua teoria dell evoluzione attraverso la selezione naturale. Nato nel 1809 e morto nel 1882, Darwin è l\'autore del libro L\'origine delle specie pubblicato nel 1859, in cui ha presentato per la prima volta la sua teoria.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/moser.jpg" alt="May-Britt Moser" width="150px" class="immagine-animata" onclick="showPopup( 'img/pg/moser.jpg', 'May-Britt Moser(1963)', ' May-Britt Moser è una neuroscienziata norvegese nata il 4 gennaio 1963. È conosciuta principalmente per il suo lavoro pionieristico sull\'ippocampo e il sistema di posizionamento spaziale nel cervello.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/fabiola_gianotti.jpg" alt="Fabiola Gianotti" width="150px" class="immagine-animata" onclick="showPopup('img/pg/fabiola_gianotti.jpg', 'Fabiola Gianotti(1960)', 'Fabiola Gianotti è una fisica italiana nota per essere stata la portavoce della collaborazione scientifica ATLAS al CERN e per essere diventata la prima donna direttrice generale del CERN nel 2012')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/craig_venter.jpg" alt="Craig Venter" width="150px" class="immagine-animata" onclick="showPopup('img/pg/craig_venter.jpg', 'Craig Venter(1946)', 'Craig Venter è un biologo e imprenditore statunitense noto per il suo lavoro nella genomica e per il suo ruolo nel sequenziamento del genoma umano. Ha fondato Celera Genomics, che ha gareggiato con il Progetto Genoma Umano per completare la mappatura del genoma umano')" >
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/rosalind_franklin.jpg" alt="Rosalind Franklin" width="150px" class="immagine-animata" onclick="showPopup('img/pg/rosalind_franklin.jpg', 'Rosalind Franklin(1920-1958)', 'Rosalind Franklin è stata una chimica e cristallografa britannica nota per il suo contributo fondamentale alla scoperta della struttura a doppia elica del DNA. Utilizzando la tecnica della diffrazione dei raggi X, ha ottenuto immagini di alta qualità del DNA che hanno permesso a James Watson e Francis Crick di dedurne la struttura. ')" >
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <img src="img/pg/galileo_galilei.jpg" alt="Galileo Galilei" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/galileo_galilei.jpg', 'Galileo Galilei(1564-1642)', 'Galileo Galilei è stato un rinomato scienziato italiano del XVI e XVII secolo, noto per i suoi contributi in fisica, astronomia e metodo scientifico. Le sue scoperte includevano le lune di Giove, l\'oscillazione del pendolo e la legge della caduta dei gravi')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/isaac_newton.jpg" alt="Isaac Newton" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/isaac_newton.jpg', 'Isaac Newton(1643-1727)', 'Isaac Newton è stato uno dei più grandi scienziati della storia, nato nel 1642 in Inghilterra. È noto principalmente per la sua legge universale della gravitazione e per il suo lavoro sui Principia Mathematica')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/gertrude_elion.jpg" alt="Gertrude Elion" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/gertrude_elion.jpg', 'Gertrude Elion(1918-1999)', ' Gertrude Elion è stata una biochimica e farmacologa americana nota per il suo lavoro pionieristico nello sviluppo di farmaci per il trattamento del cancro, delle malattie autoimmuni e delle infezioni virali. Insieme al collega George Hitchings, ha sviluppato il concetto di farmacologia razionale, portando alla creazione di numerosi farmaci innovativi, tra cui l\'azatioprina e l\'aciclovir')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/radia_perlman.jpg" alt="Radia Perlman" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/radia_perlman.jpg', 'Radia Perlman((1951))', ' Radia Perlman è un\'ingegnere informatica nota per aver creato lo Spanning Tree Protocol (STP), un protocollo fondamentale per garantire la stabilità delle reti Ethernet. Ha lavorato presso varie aziende tecnologiche ed è autrice di diversi libri sull\'argomento. Perlman è considerata una pioniera nel campo delle reti informatiche.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/adele_goldberg.jpg" alt="Adele Goldberg" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/adele_goldberg.jpg', 'Adele Goldberg(1945)', 'Adele Goldberg è una informatica americana nota per il suo lavoro nel linguaggio di programmazione Smalltalk e per il design degli ambienti di sviluppo orientati agli oggetti. ')">
+                    </td>
+                </tr>
+                <tr>
+                    <td width="20%">
+                        <img src="img/pg/hedy_lamarr.jpg" alt="Hedy Lamarr" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/hedy_lamarr.jpg', 'Hedy Lamarr(1914-2000)', 'Hedy Lamarr è stata un\'attrice austriaca-americana famosa per la sua carriera cinematografica, ma anche per il suo contributo pionieristico alla tecnologia delle comunicazioni. Nel 1942, insieme all\'inventore George Antheil, ottenne un brevetto per un sistema di frequency hopping, un\'innovativa tecnologia di comunicazione wireless che ha aperto la strada alle moderne tecnologie come il Wi-Fi e il Bluetooth. ')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/anita_borg.jpg" alt="Anita Borg" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/anita_borg.jpg', 'Anita Borg(1949-2003)', 'Anita Borg è stata una informatica e attivista americana nota per il suo lavoro nel campo dell\'informatica e per il suo impegno nell\'incoraggiare le donne nel settore tecnologico. Ha fondato l\'Anita Borg Institute for Women and Technology e creato la conferenza annuale Grace Hopper Celebration of Women in Computing')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/peter_higgs.jpg" alt="Peter Higgs" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/peter_higgs.jpg', 'Peter Higgs(1929-2024)', 'Peter Higgs è un fisico teorico britannico, nato nel 1929, noto principalmente per la sua previsione teorica dell\'esistenza del bosone di Higgs, una particella elementare che conferisce massa ad altre particelle fondamentali secondo la teoria standard della fisica delle particelle.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/rita_levi_montalcini.jpg" alt="Rita Levi-Montalcini" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/rita_levi_montalcini.jpg', 'Rita Levi-Montalcini(1909-2012)', 'Rita Levi-Montalcini è stata una neurologa e ricercatrice italiana, nata nel 1909 e morta nel 2012. È famosa per la sua scoperta dei fattori di crescita nervosa, una serie di proteine che regolano lo sviluppo e il mantenimento delle cellule nervose')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/margherita_hack.jpg" alt="Margherita Hack" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/margherita_hack.jpg', 'Margherita Hack(1922-2013)', 'Margherita Hack è stata una astrofisica italiana nata nel 1922 e morta nel 2013. È stata una delle figure più eminenti della comunità scientifica italiana, nota per i suoi contributi alla ricerca in campo astrofisico e per il suo impegno nella divulgazione scientifica. ')">
+                    </td>
+                </tr>
+				<tr>
+					<td width="20%">
+                        <img src="img/pg/Davinci.jpg" alt="Leonardo Da Vinci" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/Davinci.jpg', 'Leonardo di ser Piero da Vinci (1452–1519)', 'Uomo d\'ingegno e talento universale del Rinascimento, considerato uno dei più grandi geni dell\'umanità, incarnò in pieno lo spirito della sua epoca, portandolo alle maggiori forme di espressione nei più disparati campi dell\'arte e della conoscenza: fu infatti scienziato, filosofo, architetto, pittore, scultore, disegnatore, trattatista, scenografo, matematico, anatomista, botanico, musicista, geologo, ingegnere e progettista.')">
+					</td>
+                    <td width="20%">
+                        <img src="img/pg/nikola_tesla.jpg" alt="Nikola Tesla" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/nikola_tesla.jpg', 'Nikola Tesla (1856-1943)', 'Nikola Tesla è stato un inventore, fisico e ingegnere elettrico, nato da una famiglia serba nell\'attuale Croazia. Contribuì allo sviluppo di diversi settori delle scienze applicate, in particolare nell\'ambito dell\'elettromagnetismo, di cui fu un eminente pioniere, tra la fine dell\'Ottocento e gli inizi del Novecento.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/james_gosling.jpg" alt="James Gosling" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/james_gosling.jpg', 'James Gosling (1955)', 'James Gosling è un informatico e blogger canadese, inventore del linguaggio di programmazione Java. Nel 1977 ottiene il Bachelor of Science in Informatica dall\'Università di Calgary, e nel 1983 consegue anche il dottorato alla Carnegie Mellon University, con una tesi intitolata The Algebraic Manipulation of Constraints.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/alan_turing.jpg" alt="Alan Turing" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/alan_turing.jpg', 'Alan Turing (1912-1954)', 'Alan Turing è stato un matematico, logico, crittografo e filosofo britannico, considerato uno dei padri dell\'informatica e uno dei più grandi matematici del XX secolo. Il suo lavoro influenzó la nascita della disciplina dell\'informatica, grazie alla sua formalizzazione dei concetti di algoritmo e calcolo mediante l\'omonima macchina, che a sua volta costituì un significativo passo avanti nell\'evoluzione verso il moderno computer.')">
+                    </td>
+                    <td width="20%">
+                        <img src="img/pg/alessandro_volta.jpg" alt="Alessandro Volta" width="150px" class="immagine-animata" onclick="showPopup ('img/pg/alessandro_volta.jpg', 'Alessandro Volta (1745-1827)', 'Alessandro Volta è stato un fisico e chimico italiano, meglio conosciuto per l\'invenzione della pila elettrica nel 1800. Questa fu la prima apparecchiatura in grado di produrre un flusso costante di corrente elettrica e ebbe un profondo impatto sullo sviluppo delle tecnologie elettriche. Nel 1791, Volta scoprì che una corrente elettrica poteva essere prodotta mettendo a contatto due metalli diversi in presenza di un elettrolita.')">
+                    </td>
+				</tr>
+                </tr>        
+                </tr>
+            </table>
+        </div>
+    </div>
+    </section>
+
+    <!-- Popup per l'immagine -->
+    <div class="popup-bg" onclick="closePopup ()"></div>
+    <div class="popup" id="imagePopup">
+        <img src="" alt="Popup Image" id="popupImg">
+        <div class="popup-text" id="popupText"></div> <!-- Div per il testo del popup -->
+    </div>
+
+    <script>
+        function showPopup (src , title, text){
+            document.getElementById ('popupImg').src = src; // Imposta il src per l'immagine nel popup
+            document.getElementById ('popupText').innerHTML = '<h3>' + title + '</h3><p>' + text + '</p>'; // Imposta il testo per il popup
+            document.querySelector ('.popup').style.display = 'block'; // Mostra il popup
+            document.querySelector ('.popup-bg').style.display = 'block'; // Mostra lo sfondo scuro
+        }
+
+        function closePopup () {
+            document.querySelector ('.popup').style.display = 'none'; // Nasconde il popup
+            document.querySelector ('.popup-bg').style.display = 'none'; // Nasconde lo sfondo scuro
+        }
+    </script>
+</body>
+</html>

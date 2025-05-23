@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Gioca!</title>
+    <style>
+        /* Aggiungi stili CSS per il popup */
+        #testoDomanda {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .popup-bg {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #popupImg {
+            max-width: 100%;
+            max-height: 90vh;
+        }
+
+        /* Aggiungi stili per rimuovere le barre di scorrimento */
+        body, html {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex; /* Utilizza flexbox per il layout */
+            justify-content: center; /* Centra il contenuto orizzontalmente */
+            align-items: center; /* Centra il contenuto verticalmente */
+            background-color: #000; /* Colore di sfondo */
+            color: white; /* Colore del testo */
+            font-family: Arial, sans-serif; /* Tipo di carattere */
+            text-align: center; /* Allinea il testo al centro */
+        }
+
+        .container {
+            display: flex; /* Utilizza flexbox per il layout */
+            margin: 20px;/* Margine esterno */
+            justify-content: center; /* Centra il contenuto orizzontalmente */
+        }
+
+        .content {
+            flex: 1; /* Flessibilità del contenuto */
+            padding: 20px; /* Spaziatura interna */
+            text-align: left; /* Allinea il testo a sinistra */
+        }
+
+        .content img {
+            max-width: 100%; /* Larghezza massima dell'immagine */
+            height: auto; /* Altezza automatica */
+        }
+        .circular-square {
+            border-radius: 50%; /* Rende gli angoli rotondi */
+            overflow: hidden; /* Assicura che l'immagine sia tagliata correttamente */
+            width: 150px; /* Larghezza e altezza dell'immagine */
+            height: 150px;
+            display: flex; /* Per centrare l'immagine */
+            justify-content: center; /* Per centrare l'immagine */
+            align-items: center; /* Per centrare l'immagine */
+        }
+
+        .image-container {
+            display: flex; /* Flessibilità del contenitore dell'immagine */
+            justify-content: center; /* Centra l'immagine orizzontalmente */
+            align-items: center; /* Centra l'immagine verticalmente */
+            padding: 20px; /* Spaziatura interna */
+        }
+
+        .image-container img {
+            max-width: 100%; /* Larghezza massima dell'immagine */
+            height: auto; /* Altezza automatica */
+        }
+
+        #myImage {
+            margin-top: 20px;
+            max-width: 50%;
+            height: auto;
+            display: none; 
+        }
+
+        #personaggio {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="script/script.js"></script>
+</head>
+<body>
+    <section>
+        <div class="star star1"></div>
+        <div class="star star2"></div>
+        <div class="star star3"></div>
+        <div class="star star4"></div>
+
+        <input type="checkbox" id="check">
+        <header>
+            <div class="circular-square">
+                <img src="img/resources/logo itis.png" usemap="#logus" height="150px" width="150px"> 
+                <map name="logus">
+                    <area shape="rect" coords="1,1,128,129" href="https://www.itisguidodorso.edu.it/" target="_blank">
+                </map>
+            </div>
+            <div class="navigation">
+                <a href="index.html">Home</a>
+                <a href="lista_personaggi.html">Lista Personaggi</a>
+                <a href="gioco.html">Gioca</a>
+            </div>
+            <label for="check">
+                <i class="fas fa-bars menu-btn"></i>
+                <i class="fas fa-times menu-btn"></i>
+            </label>
+        </header>
+        <div class="container">
+            <div class="content">
+                <div class="info">
+                    <div align="center">
+                        <h2>STEAM Who?<br><span>Indovino il personaggio!</span></h2><!-- da accentrare -->
+                    </div>
+                </div>
+                <div id="divTestoDomanda" align="center">
+                    <p id="testoDomanda"></p>
+                    <div class="gioco">
+                        <button onclick="rispostaDomanda('SI')">SI</button>
+                        <button onclick="rispostaDomanda('NO')">NO</button>
+                    </div>
+                </div>
+                <div id="personaggio"></div>
+                <img id="myImage" src="" alt="Immagine del Personaggio">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

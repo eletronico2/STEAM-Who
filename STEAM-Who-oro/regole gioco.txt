@@ -1,0 +1,4 @@
+In primis ti verranno mostrati i personaggi tra i quali tu potrai sceglierne uno.
+Una volta scelto il personaggio, il sito inizierà a porti delle domande per provare a capire quale personaggio tu abbia scelto.
+Mano a mano queste domande diventeranno più specificare per capire il personaggio scelto.
+Infine il sito ti darà il personaggio da te scelto.
